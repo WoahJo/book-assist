@@ -5,6 +5,8 @@ const fpages = document.getElementById('pages');
 const fread = document.getElementById('read');
 const fsubmit = document.getElementById('submit-book');
 const form = document.getElementById('book-form');
+const addBook = document.querySelector('.add');
+const fcancel = document.getElementById('close-book');
 
 function Book(title, author, pages, read) {
     //TODO create a constructor that takes the input from the popup and creates an object
@@ -20,9 +22,17 @@ function toBookshelf() {
 
 }
 
+addBook.addEventListener("click", function(e){
+    form.style.display = "block";
+});
+
 fsubmit.addEventListener("click", function(e){
     if(!fpages.value){
         console.log('number please!');
     }
     else{toBookshelf(); form.reset();}
 });
+
+fcancel.addEventListener("click", function(e){
+    form.style.display = "none";
+})

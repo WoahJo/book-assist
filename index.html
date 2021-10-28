@@ -11,22 +11,23 @@
     <h1 class="header">BookAssist</h1>
     <div class="intro">
         <div class="desc">Track the books you've read and want to read. Click 'Add Book' to add a book to your library.</div>
-        <div>
+        <div class="add-book">
             <button class="add" type="button">Add Book</button>
+            <form id="book-form" action="script.js">
+                <label for="title">Title:</label><br>
+                <input type="text" id="title" name="title" placeholder="Title"><br>
+                <label for="author">Author:</label><br>
+                <input type="text" id="author" name="author" placeholder="Author"><br>
+                <label for="pages">Pages:</label><br>
+                <input type="number" id="pages" name="pages" placeholder="Pages"><br>
+                <label for="read">Read it!: </label>
+                <input type="checkbox" id="read"><br><br>
+                <button type="button" id="submit-book">Submit</button>
+                <button type="button" id="close-book">Close</button>
+            </form>
         </div>
     </div>
     <div class="card-field">
-        <!-- <form id="book-form" action="script.js">
-            <label for="title">Title:</label><br>
-            <input type="text" id="title" name="title" placeholder="Title"><br>
-            <label for="author">Author:</label><br>
-            <input type="text" id="author" name="author" placeholder="Author"><br>
-            <label for="pages">Pages:</label><br>
-            <input type="number" id="pages" name="pages" placeholder="Pages"><br>
-            <label for="read">Read it!: </label>
-            <input type="checkbox" id="read"><br><br>
-            <button type="button" id="submit-book">Submit</button>
-        </form> -->
 
         <div class="card">
             <h1 class="btitle">No One Belongs Here More Than You</h1>
