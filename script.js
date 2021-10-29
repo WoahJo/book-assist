@@ -54,9 +54,6 @@ function toBookshelf() {
     cardDiv.appendChild(actionDiv);
     actionDiv.appendChild(readButton);
     actionDiv.appendChild(removeButton);
-
-
-
 }
 
 addBook.addEventListener("click", function(e){
@@ -64,8 +61,11 @@ addBook.addEventListener("click", function(e){
 });
 
 fsubmit.addEventListener("click", function(e){
-    if(!fpages.value){
-        alert('number please!');
+    if(!fpages.value || fpages.value < 0){
+        alert('Positive number please!');
+    }
+    if(!ftitle.value || !fauthor.value){
+        alert("Please enter a title and an author.");
     }
     else{toBookshelf(); form.reset();}
 });
