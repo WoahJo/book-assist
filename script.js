@@ -18,12 +18,6 @@ function Book(title, author, pages, read) {
     this.read = read
 }
 
-// function readIt(){
-    //     if(!fread.checked || ){
-        
-        //     }
-        // }
-        
 function toBookshelf() {
     //TODO create a function that sends the created object to the 
     bookshelf.unshift(new Book(ftitle.value, fauthor.value, fpages.value, fread.checked));
@@ -59,10 +53,6 @@ function toBookshelf() {
         newReadButton.textContent = "Unread";
     }
     
-    
-    // (fread.checked) ? newReadButton.className = "bread hasRead" : newReadButton.className = "bread";
-    // newReadButton.textContent = "Unread";
-    
     newRemoveButton.className = "remove";
     newRemoveButton.textContent = "Remove";
     
@@ -82,6 +72,15 @@ function toBookshelf() {
         else{newReadButton.textContent = "Unread";}
     });
     
+    newRemoveButton.addEventListener("click", function(e){
+        let index = bookshelf.findIndex(element => {
+            if(element.title === btitleH1.textContent){
+                return true;
+            }
+        });
+        cardField.removeChild(cardDiv);
+        bookshelf.splice(bookshelf[index], 1);
+    });
 }
 
 addBook.addEventListener("click", function(e){
