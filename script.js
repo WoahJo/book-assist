@@ -18,7 +18,12 @@ function Book(title, author, pages, read) {
     this.read = read
 }
 
-
+// function readIt(){
+    //     if(!fread.checked || ){
+        
+        //     }
+        // }
+        
 function toBookshelf() {
     //TODO create a function that sends the created object to the 
     bookshelf.unshift(new Book(ftitle.value, fauthor.value, fpages.value, fread.checked));
@@ -35,21 +40,32 @@ function toBookshelf() {
     
     btitleH1.className = "btitle";
     btitleH1.textContent = ftitle.value;
-
+    
     bauthorH2.className = "bauthor"; 
     bauthorH2.textContent = fauthor.value;
-
+    
     bpagesP.className = "bpages";
     bpagesP.textContent = `${fpages.value} page(s)`;
-
-    actionDiv.className = "action-buttons";
     
-    (fread.checked) ? newReadButton.className = "bread hasRead" : newReadButton.className = "bread";
-    newReadButton.textContent = "Read";
+    actionDiv.className = "action-buttons";
 
+    if(fread.checked){
+        newReadButton.className = "bread";
+        newReadButton.classList.add("hasRead");
+        newReadButton.textContent = "Read it!";
+    }
+    if(!fread.checked){
+        newReadButton.className = "bread";
+        newReadButton.textContent = "Unread";
+    }
+    
+    
+    // (fread.checked) ? newReadButton.className = "bread hasRead" : newReadButton.className = "bread";
+    // newReadButton.textContent = "Unread";
+    
     newRemoveButton.className = "remove";
     newRemoveButton.textContent = "Remove";
-
+    
     cardField.appendChild(cardDiv);
     cardDiv.appendChild(btitleH1);
     cardDiv.appendChild(bauthorH2);
@@ -57,6 +73,15 @@ function toBookshelf() {
     cardDiv.appendChild(actionDiv);
     actionDiv.appendChild(newReadButton);
     actionDiv.appendChild(newRemoveButton);
+
+    newReadButton.addEventListener("click", function(e){
+        newReadButton.classList.toggle("hasRead");
+        if(newReadButton.textContent == "Unread"){
+            newReadButton.textContent = "Read it!";
+        }
+        else{newReadButton.textContent = "Unread";}
+    });
+    
 }
 
 addBook.addEventListener("click", function(e){
@@ -77,6 +102,3 @@ fsubmit.addEventListener("click", function(e){
 fcancel.addEventListener("click", function(e){
     form.style.display = "none";
 });
-
-const readButton = document.querySelector('.bread');
-readButton.addEventListener("click", () => readButton.classList.toggle("hasRead"));
