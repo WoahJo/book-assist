@@ -9,6 +9,7 @@ const addBook = document.querySelector('.add');
 const fcancel = document.getElementById('close-book');
 const cardField = document.querySelector('.card-field');
 
+
 function Book(title, author, pages, read) {
     //TODO create a constructor that takes the input from the popup and creates an object
     this.title = title, 
@@ -17,46 +18,49 @@ function Book(title, author, pages, read) {
     this.read = read
 }
 
+
 function toBookshelf() {
     //TODO create a function that sends the created object to the 
     bookshelf.unshift(new Book(ftitle.value, fauthor.value, fpages.value, fread.checked));
-
+    
+    const newReadButton = document.createElement('button');
     const cardDiv = document.createElement('div');
-    cardDiv.className = "card";
-
     const btitleH1 = document.createElement('h1');
+    const bauthorH2 = document.createElement('h2');
+    const bpagesP = document.createElement('p');
+    const actionDiv = document.createElement('div');
+    const newRemoveButton = document.createElement('button');
+    
+    cardDiv.className = "card";
+    
     btitleH1.className = "btitle";
     btitleH1.textContent = ftitle.value;
 
-    const bauthorH2 = document.createElement('h2');
     bauthorH2.className = "bauthor"; 
     bauthorH2.textContent = fauthor.value;
 
-    const bpagesP = document.createElement('p');
     bpagesP.className = "bpages";
     bpagesP.textContent = `${fpages.value} page(s)`;
 
-    const actionDiv = document.createElement('div');
     actionDiv.className = "action-buttons";
     
-    const readButton = document.createElement('button');
-    readButton.className = "bread";
-    readButton.textContent = "Read";
+    (fread.checked) ? newReadButton.className = "bread hasRead" : newReadButton.className = "bread";
+    newReadButton.textContent = "Read";
 
-    const removeButton = document.createElement('button');
-    removeButton.className = "remove";
-    removeButton.textContent = "Remove";
+    newRemoveButton.className = "remove";
+    newRemoveButton.textContent = "Remove";
 
     cardField.appendChild(cardDiv);
     cardDiv.appendChild(btitleH1);
     cardDiv.appendChild(bauthorH2);
     cardDiv.appendChild(bpagesP);
     cardDiv.appendChild(actionDiv);
-    actionDiv.appendChild(readButton);
-    actionDiv.appendChild(removeButton);
+    actionDiv.appendChild(newReadButton);
+    actionDiv.appendChild(newRemoveButton);
 }
 
 addBook.addEventListener("click", function(e){
+    form.reset();
     form.style.display = "block";
 });
 
@@ -72,4 +76,7 @@ fsubmit.addEventListener("click", function(e){
 
 fcancel.addEventListener("click", function(e){
     form.style.display = "none";
-})
+});
+
+const readButton = document.querySelector('.bread');
+readButton.addEventListener("click", () => readButton.classList.toggle("hasRead"));
