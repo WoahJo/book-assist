@@ -89,13 +89,12 @@ addBook.addEventListener("click", function(e){
 });
 
 fsubmit.addEventListener("click", function(e){
-    if(!fpages.value || fpages.value < 0){
-        alert('Positive number please!');
+    if(form.checkValidity() && fpages.value >= 0){
+        toBookshelf();
+        form.reset();
     }
-    if(!ftitle.value || !fauthor.value){
-        alert("Please enter a title and an author.");
-    }
-    else{toBookshelf(); form.reset();}
+    else{form.reportValidity();}
+
 });
 
 fcancel.addEventListener("click", function(e){
