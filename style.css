@@ -29,11 +29,12 @@ body{
 
 .card-field {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     align-items: stretch;
     flex-wrap: wrap;
     row-gap: 15px;
-    padding: 20px 0;
+    column-gap: 15px;
+    padding: 40px;
 }
 
 .card {

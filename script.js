@@ -83,13 +83,23 @@ function toBookshelf() {
     });
 }
 
+function double(){
+    for(let i = bookshelf.length - 1; i >= 0; i--){
+        if(bookshelf[i].title == ftitle.value){
+            return true;
+        }
+    }
+}
 addBook.addEventListener("click", function(e){
     form.reset();
     form.style.display = "block";
 });
 
 fsubmit.addEventListener("click", function(e){
-    if(form.checkValidity() && fpages.value >= 0){
+    if(double()){
+        alert('nope');
+    }
+    if(form.checkValidity() && fpages.value >= 0 && !double()){
         toBookshelf();
         form.reset();
     }
