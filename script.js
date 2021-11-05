@@ -94,6 +94,7 @@ function double(){
 addBook.addEventListener("click", function(e){
     form.reset();
     form.style.display = "block";
+    ftitle.focus();
 });
 
 fsubmit.addEventListener("click", function(e){
