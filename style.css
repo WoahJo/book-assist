@@ -84,3 +84,7 @@ body{
     color: white;
 }
 
+.duplicate {
+    display: none;
+    color: red;
+}

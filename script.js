@@ -8,6 +8,7 @@ const form = document.getElementById('book-form');
 const addBook = document.querySelector('.add');
 const fcancel = document.getElementById('close-book');
 const cardField = document.querySelector('.card-field');
+const duplicate = document.querySelector('.duplicate');
 
 
 function Book(title, author, pages, read) {
@@ -97,16 +98,19 @@ addBook.addEventListener("click", function(e){
 
 fsubmit.addEventListener("click", function(e){
     if(double()){
-        alert('nope');
+        duplicate.style.display = "block";
+        ftitle.focus();
     }
     if(form.checkValidity() && fpages.value >= 0 && !double()){
         toBookshelf();
         form.reset();
+        ftitle.focus();
+        duplicate.style.display = "none";
     }
     else{form.reportValidity();}
-
 });
 
 fcancel.addEventListener("click", function(e){
+    duplicate.style.display = "none";
     form.style.display = "none";
 });
