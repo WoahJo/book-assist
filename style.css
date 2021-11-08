@@ -59,17 +59,70 @@ body{
 }
 
 #book-form {
-    display: none;
     position: relative;
-    background-color: rgba(255, 127, 80, 0.795);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #efe6dd;
     border: 1px black solid;
-    padding: 0;
+    padding: 70px;
+    row-gap: 5px;
+    width: 30%;
     margin: auto;
-    box-shadow: 0 5px 5px 0 grey, 0 5px 15px 0 grey;
+    box-shadow: 0 5px 5px 0 rgb(52, 47, 54), 0 5px 15px 0 rgb(52, 47, 54);
     -webkit-animation-name: fromtop;
     -webkit-animation-duration: 0.3s;
     animation-name: fromtop;
     animation-duration: 0.4s;
+}
+
+.sub-close {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+input, input[type = "number"]{
+    height: 30px;
+    font-size: 1.2rem;
+}
+
+.read-label {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+.read-label label{
+    display: contents;
+}
+#read {
+    width: 35px;
+    height: 35px;
+    margin: 0;
+}
+
+label{ 
+    font-size: 1.3rem;
+}
+
+.aside {
+    color: rgba(255, 0, 0, 0.678);
+    font-size: 1rem;
+}
+
+#submit-book, #close-book {
+    height: 40px;
+    font-size: 1.3rem;
+    color: white;
+    border: none;
+}
+#submit-book {
+    background-color: #26c46b;
+}
+#close-book {
+    margin-top: 5px;
+    background-color: #bb4430;
 }
 
 @-webkit-keyframes fromtop {

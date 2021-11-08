@@ -94,7 +94,7 @@ function double(){
 }
 addBook.addEventListener("click", function(e){
     form.reset();
-    form.style.display = "block";
+    // form.style.display = "flex";
     modal.style.display = "block";
     ftitle.focus();
 });
@@ -117,6 +117,13 @@ fsubmit.addEventListener("click", function(e){
 
 fcancel.addEventListener("click", function(e){
     duplicate.style.display = "none";
-    form.style.display = "none";
+    // form.style.display = "none";
     modal.style.display = "none";
+});
+
+window.addEventListener("click", function(e){
+    if(e.target == modal){
+        modal.style.display = "none";
+        // form.style.display = "none";
+    }
 });
