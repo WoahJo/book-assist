@@ -9,6 +9,7 @@ const addBook = document.querySelector('.add');
 const fcancel = document.getElementById('close-book');
 const cardField = document.querySelector('.card-field');
 const duplicate = document.querySelector('.duplicate');
+const modal = document.querySelector('.modal');
 
 
 function Book(title, author, pages, read) {
@@ -94,8 +95,11 @@ function double(){
 addBook.addEventListener("click", function(e){
     form.reset();
     form.style.display = "block";
+    modal.style.display = "block";
     ftitle.focus();
 });
+
+
 
 fsubmit.addEventListener("click", function(e){
     if(double()){
@@ -114,4 +118,5 @@ fsubmit.addEventListener("click", function(e){
 fcancel.addEventListener("click", function(e){
     duplicate.style.display = "none";
     form.style.display = "none";
+    modal.style.display = "none";
 });

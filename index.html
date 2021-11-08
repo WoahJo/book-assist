@@ -13,18 +13,20 @@
         <div class="desc">Track the books you've read and want to read. Click 'Add Book' to add a book to your library.</div>
         <div class="add-book">
             <button class="add" type="button">Add Book</button>
-            <form id="book-form" name="bookForm">
-                <label for="title">Title: <span class="duplicate">This book is already in your library.</span></label><br>
-                <input type="text" id="title" name="title" placeholder="Title" required><br>
-                <label for="author">Author:</label><br>
-                <input type="text" id="author" name="author" placeholder="Author" required><br>
-                <label for="pages">Pages:<span class="aside"> Must be at least one.</span></label><br>
-                <input type="number" id="pages" name="pages" placeholder="Pages" required min="1"><br>
-                <label for="read">Read it!: </label>
-                <input type="checkbox" id="read"><br><br>
-                <button type="button" id="submit-book">Submit</button>
-                <button type="button" id="close-book">Close</button>
-            </form>
+            <div class="modal">
+                <form id="book-form" name="bookForm">
+                    <label for="title">Title: <span class="duplicate">This book is already in your library.</span></label><br>
+                    <input type="text" id="title" name="title" placeholder="Title" required><br>
+                    <label for="author">Author:</label><br>
+                    <input type="text" id="author" name="author" placeholder="Author" required><br>
+                    <label for="pages">Pages:<span class="aside"> Must be at least one.</span></label><br>
+                    <input type="number" id="pages" name="pages" placeholder="Pages" required min="1"><br>
+                    <label for="read">Read it!: </label>
+                    <input type="checkbox" id="read"><br><br>
+                    <button type="button" id="submit-book">Submit</button>
+                    <button type="button" id="close-book">Close</button>
+                </form>
+            </div>
         </div>
     </div>
     <div class="card-field">

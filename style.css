@@ -9,6 +9,8 @@ body{
     align-items: stretch;
     margin: 0; 
     padding: 0;
+    background-color: #efe6dd;
+    font-family: sans-serif;
 }
 
 .header {
@@ -16,7 +18,9 @@ body{
     justify-content: center;
     margin: 0;
     padding: 40px;
-    background-color: coral;
+    background-color: rgb(52, 47, 54);
+    color: rgb(248, 248, 232);
+    font-family: sans-serif;
 }
 
 .intro {
@@ -24,7 +28,58 @@ body{
     flex-direction: column;
     align-items: center;
     row-gap: 20px;
+    font-size: 1.2rem;
     padding: 40px;
+}
+.add {
+    margin-bottom: 20px;
+    width: 150px;
+    height: 60px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    background-color: #38ac55;
+    border: none;
+    color: rgb(255, 255, 255);
+}
+
+.add:hover{
+    background-color: #6bdd88;;
+}
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding-top: 75px;
+    top: 0;
+    left: 0;
+    width: 100%; 
+    height: 100%;
+    overflow: auto;
+    background-color:rgba(52, 47, 54, 0.445);
+}
+
+#book-form {
+    display: none;
+    position: relative;
+    background-color: rgba(255, 127, 80, 0.795);
+    border: 1px black solid;
+    padding: 0;
+    margin: auto;
+    box-shadow: 0 5px 5px 0 grey, 0 5px 15px 0 grey;
+    -webkit-animation-name: fromtop;
+    -webkit-animation-duration: 0.3s;
+    animation-name: fromtop;
+    animation-duration: 0.4s;
+}
+
+@-webkit-keyframes fromtop {
+    from{top: -400px; opacity: 0}
+    to {top: 0; opacity: 1;}
+}
+
+@keyframes fromtop {
+    from {top: -400px; opacity: 0;}
+    to {top: 0; opacity: 1;}
 }
 
 .card-field {
@@ -70,14 +125,6 @@ body{
     flex-shrink: 0;
 }
 
-#book-form {
-    display: none;
-    z-index: 1;
-    position: fixed;
-    background-color: rgba(255, 127, 80, 0.795);
-    padding: 40px;
-
-}
 
 .hasRead {
     background-color: green;
