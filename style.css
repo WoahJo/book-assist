@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
+
 html, body {
     height: 100%;
 }
@@ -9,7 +11,7 @@ body{
     align-items: stretch;
     margin: 0; 
     padding: 0;
-    background-color: #efe6dd;
+    background-color: white;
     font-family: sans-serif;
 }
 
@@ -18,8 +20,8 @@ body{
     justify-content: center;
     margin: 0;
     padding: 40px;
-    background-color: rgb(52, 47, 54);
-    color: rgb(248, 248, 232);
+    background-color: #202731;
+    color: white;
     font-family: sans-serif;
 }
 
@@ -63,7 +65,7 @@ body{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background-color: #efe6dd;
+    background-color: white;
     border: 1px black solid;
     padding: 70px;
     row-gap: 5px;
@@ -100,6 +102,7 @@ input, input[type = "number"]{
     width: 35px;
     height: 35px;
     margin: 0;
+    cursor: pointer;
 }
 
 label{ 
@@ -116,9 +119,14 @@ label{
     font-size: 1.3rem;
     color: white;
     border: none;
+    cursor: pointer;
+}
+
+#submit-book:hover, #close-book:hover {
+    opacity: 0.5;
 }
 #submit-book {
-    background-color: #26c46b;
+    background-color: #38ac55;
 }
 #close-book {
     margin-top: 5px;
@@ -137,37 +145,74 @@ label{
 
 .card-field {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: stretch;
     flex-wrap: wrap;
     row-gap: 15px;
     column-gap: 15px;
-    padding: 40px;
+    padding: 60px;
 }
 
 .card {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    max-width: 300px;
-    max-height: 300px;
+    justify-content: flex-start;
+    width: 275px;
+    height: 350px;
+    /* max-width: 400px;
+    max-height: 500px;
     min-width: 300px;
-    min-height: 300px;
-    padding: 10px;
-    border: black 1px solid;
+    min-height: 300px; */
+    padding: 15px;
+    border: rgba(99, 95, 111, 0.4) 1px solid;
     border-radius: 15px;
-    
+    font-family: 'Quicksand', sans-serif;
+    box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.158), 0 5px 8px 0 rgba(0, 0, 0, 0.158);
+}
+
+.btitle, .bauthor {
+    /* display: flex; */
+    max-width: 300px;
+    margin: 0;
+    flex: 1;
+    overflow-wrap: break-word;
+}
+
+.btitle {
+    font-weight: bolder;
+    color: #22222E;
+}
+
+.bauthor{
+    font-weight: lighter;
+    color: #22222ecb;
 }
 
 .action-buttons{
     display: flex; 
     flex-direction: column;
     width: 100%;
+    row-gap: 5px;
+}
+
+.bread:hover, .remove:hover{
+    opacity: 0.5;
+}
+.bread, .remove{
+    cursor: pointer;
+    height: 35px;
+    border: none;
 }
 
 .bread {
-    background-color: red;
+    background-color: rgb(218, 60, 60);
     color: white;
+}
+
+.remove{
+    background-color: lightsteelblue;
+    color: black;
 }
 
 .footer{
@@ -176,11 +221,14 @@ label{
     justify-content: center;
     align-items: center;
     flex-shrink: 0;
+    background-color: #22222E;
+    color: white;
+    padding: 10px;
 }
 
 
 .hasRead {
-    background-color: green;
+    background-color: #38ac55;
     color: white;
 }
 
