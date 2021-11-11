@@ -209,6 +209,7 @@ label{
     cursor: pointer;
     height: 35px;
     border: none;
+    font-size: 1rem;
 }
 
 .bread {

@@ -11,6 +11,19 @@ const cardField = document.querySelector('.card-field');
 const duplicate = document.querySelector('.duplicate');
 const modal = document.querySelector('.modal');
 
+function storageAvailable(type){
+    let storage;
+    try {
+        storage = window[type];
+        let x = 'test';
+        storage.setItem(x, x);
+        storage.removeItem(x);
+    }
+    catch(e){
+        return e instanceof DOMException && (e.code === 22 || e.code ===1014 || e.name === 'QuotaExceededError' || e.name === 'NS_ERROR_DOM_QUOTA_REACHED') && (storage && storage.length !== 0);
+    }
+}
+
 
 function Book(title, author, pages, read) {
     //TODO create a constructor that takes the input from the popup and creates an object
@@ -83,6 +96,8 @@ function toBookshelf() {
         cardField.removeChild(cardDiv);
         bookshelf.splice(bookshelf[index], 1);
     });
+
+
 }
 
 function double(){
