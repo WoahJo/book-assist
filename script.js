@@ -108,7 +108,7 @@ function createElements(){
 
 function populateField(){
     for(let i = 0; i < parseBookshelf.length; i++){
-        bookshelf.unshift(new Book(parseBookshelf[i]. title, parseBookshelf[i].author, parseBookshelf[i].pages, parseBookshelf[i].read));
+        bookshelf.push(new Book(parseBookshelf[i].title, parseBookshelf[i].author, parseBookshelf[i].pages, parseBookshelf[i].read));
         const parseCard = document.createElement('div');
         const parseH1 = document.createElement('h1'); 
         const parseH2 = document.createElement('h2'); 
@@ -117,11 +117,21 @@ function populateField(){
         const parseRemove = document.createElement('button');
         
 
+        parseCard.className = "card";
         
         parseH1.className = "btitle";
-        parseCard.className = "card";
         parseH1.textContent = parseBookshelf[i].title;
         parseCard.appendChild(parseH1);
+        cardField.appendChild(parseCard);
+
+        parseH2.className = "bauthor";
+        parseH2.textContent = parseBookshelf[i].author;
+        parseCard.appendChild(parseH2);
+        cardField.appendChild(parseCard);
+
+        parseP.className = "bpages";
+        parseP.textContent = parseBookshelf[i].pages + " page(s)";
+        parseCard.appendChild(parseP);
         cardField.appendChild(parseCard);
 
     }       
