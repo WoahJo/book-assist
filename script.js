@@ -134,6 +134,20 @@ function populateField(){
         parseCard.appendChild(parseP);
         cardField.appendChild(parseCard);
 
+        parseRead.className = "bread";
+        if(parseBookshelf.read){
+            parseRead.textContent = "Read it!";
+        }
+        else{parseRead.textContent = "Unread";}
+
+        parseRead.addEventListener("click", function(e){
+            parseRead.classList.toggle = "hasRead";
+            if(parseRead.textContent == "Unread"){
+                parseRead.textContent = "Read it!";
+            }
+            else{parseRead.textContent = "Unread";}
+        });
+
     }       
 }
 
