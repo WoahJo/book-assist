@@ -32,6 +32,7 @@ window.onload = function(){
     if(storageAvailable('localStorage')){
         getBookshelf = localStorage.getItem('strBookshelf');
         parseBookshelf = JSON.parse(getBookshelf);
+        bookshelf = [];
         // console.log(parseBookshelf);
         if(parseBookshelf.length > 0){
             populateField();
@@ -121,8 +122,8 @@ function createElements(){
                 return true;
             }
         });
+        bookshelf.splice(index, 1);
         cardField.removeChild(cardDiv);
-        bookshelf.splice(bookshelf[index], 1);
         if(storageAvailable('localStorage')){
             strBookshelf = JSON.stringify(bookshelf);
             localStorage.setItem('strBookshelf', strBookshelf);
@@ -133,8 +134,8 @@ function createElements(){
     if(storageAvailable('localStorage')){
         strBookshelf = JSON.stringify(bookshelf);
         localStorage.setItem('strBookshelf', strBookshelf);
-        getBookshelf = localStorage.getItem(strBookshelf);
-        parseBookshelf = JSON.parse(getBookshelf);
+        // getBookshelf = localStorage.getItem(strBookshelf);
+        // parseBookshelf = JSON.parse(getBookshelf);
 
     }
 }
@@ -217,13 +218,14 @@ function populateField(){
         parseRemove.addEventListener("click", function(e){
             
             cardField.removeChild(parseCard);
-            parseBookshelf.splice(parseBookshelf[i], 1);
-            
+            parseBookshelf.splice(i, 1);
+            bookshelf.splice(i, 1);
             if(storageAvailable('localStorage')){
                 strBookshelf = JSON.stringify(parseBookshelf);
                 localStorage.setItem('strBookshelf', strBookshelf);
         
             }
+            
         });
         
     }       
