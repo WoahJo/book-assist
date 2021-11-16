@@ -37,7 +37,6 @@ window.onload = function(){
         getBookshelf = localStorage.getItem('strBookshelf');
         parseBookshelf = JSON.parse(getBookshelf);
         bookshelf = [];
-        // console.log(parseBookshelf);
         if(parseBookshelf.length > 0){
             populateField();
         }
@@ -100,7 +99,6 @@ function createElements(){
             if(storageAvailable('localStorage')){
                 strBookshelf = JSON.stringify(bookshelf);
                 localStorage.setItem('strBookshelf', strBookshelf);
-        
             }
             
         }
@@ -115,7 +113,6 @@ function createElements(){
             if(storageAvailable('localStorage')){
                 strBookshelf = JSON.stringify(bookshelf);
                 localStorage.setItem('strBookshelf', strBookshelf);
-        
             }
         }
     });
@@ -138,9 +135,6 @@ function createElements(){
     if(storageAvailable('localStorage')){
         strBookshelf = JSON.stringify(bookshelf);
         localStorage.setItem('strBookshelf', strBookshelf);
-        // getBookshelf = localStorage.getItem(strBookshelf);
-        // parseBookshelf = JSON.parse(getBookshelf);
-
     }
 }
 
@@ -194,7 +188,6 @@ function populateField(){
                 if(storageAvailable('localStorage')){
                     strBookshelf = JSON.stringify(parseBookshelf);
                     localStorage.setItem('strBookshelf', strBookshelf);
-            
                 }
             }
             else{
@@ -203,7 +196,6 @@ function populateField(){
                 if(storageAvailable('localStorage')){
                     strBookshelf = JSON.stringify(parseBookshelf);
                     localStorage.setItem('strBookshelf', strBookshelf);
-            
                 }
             }
         });
@@ -236,7 +228,6 @@ function populateField(){
 }
 
 function Book(title, author, pages, read) {
-    //TODO create a constructor that takes the input from the popup and creates an object
     this.title = title, 
     this.author = author,
     this.pages = pages,
@@ -244,7 +235,6 @@ function Book(title, author, pages, read) {
 }
 
 function toBookshelf() {
-    //TODO create a function that sends the created object to the 
     bookshelf.push(new Book(ftitle.value, fauthor.value, fpages.value, fread.checked));
     createElements();
 
@@ -260,7 +250,6 @@ function double(){
 }
 addBook.addEventListener("click", function(e){
     form.reset();
-    // form.style.display = "flex";
     modal.style.display = "block";
     ftitle.focus();
 });
@@ -278,7 +267,6 @@ clear.addEventListener("click", function(e){
         });
         cancelDelete.addEventListener("click", e => {confirmModal.style.display = "none"});
     }
-
 });
 
 fsubmit.addEventListener("click", function(e){
@@ -297,13 +285,11 @@ fsubmit.addEventListener("click", function(e){
 
 fcancel.addEventListener("click", function(e){
     duplicate.style.display = "none";
-    // form.style.display = "none";
     modal.style.display = "none";
 });
 
 window.addEventListener("click", function(e){
     if(e.target == modal){
         modal.style.display = "none";
-        // form.style.display = "none";
     }
 });
