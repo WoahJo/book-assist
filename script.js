@@ -87,7 +87,7 @@ function createElements(){
         if(newReadButton.textContent == "Unread"){
             newReadButton.textContent = "Read it!";
             let index = bookshelf.findIndex(element => {
-                if(element.title == btitleH1.textContent){
+                if(element.title === btitleH1.textContent){
                     return true;
                 }
             });
@@ -102,7 +102,7 @@ function createElements(){
         else{
             newReadButton.textContent = "Unread";
             let index = bookshelf.findIndex(element => {
-                if(element.title == btitleH1.textContent){
+                if(element.title === btitleH1.textContent){
                     return true;
                 }
             });
@@ -239,7 +239,7 @@ function Book(title, author, pages, read) {
 
 function toBookshelf() {
     //TODO create a function that sends the created object to the 
-    bookshelf.unshift(new Book(ftitle.value, fauthor.value, fpages.value, fread.checked));
+    bookshelf.push(new Book(ftitle.value, fauthor.value, fpages.value, fread.checked));
     createElements();
 
 }
