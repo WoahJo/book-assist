@@ -57,7 +57,7 @@ body{
 .add:hover, .clear:hover{
     opacity: 70%;
 }
-.modal {
+.modal, .confirm-modal {
     display: none;
     position: fixed;
     z-index: 1;
@@ -70,7 +70,7 @@ body{
     background-color:rgba(52, 47, 54, 0.445);
 }
 
-#book-form {
+#book-form, #confirm-clear {
     position: relative;
     display: flex;
     flex-direction: column;
@@ -86,6 +86,44 @@ body{
     -webkit-animation-duration: 0.3s;
     animation-name: fromtop;
     animation-duration: 0.4s;
+}
+
+#confirm-clear {
+    row-gap: 30px;
+}
+
+.confirm-text{ 
+    text-align: justify;
+    font-size: 1.3rem;
+}
+
+.confirm-buttons {
+    flex: 1; 
+    display: flex;
+    justify-content: space-around;
+    column-gap: 10px;
+    width: 100%;
+}
+
+.confirm-delete:hover, .cancel-delete:hover{
+    opacity: 70%;
+}
+
+.confirm-delete, .cancel-delete{
+    height: 40px;
+    color: white;
+    width: 100%;
+    font-size: 1.2rem;
+    border: none;
+    cursor: pointer;
+}
+
+.confirm-delete {
+    background-color: #38ac55;
+}
+
+.cancel-delete {
+    background-color: rgb(218, 60, 60);
 }
 
 .sub-close {

@@ -11,6 +11,9 @@ const cardField = document.querySelector('.card-field');
 const duplicate = document.querySelector('.duplicate');
 const modal = document.querySelector('.modal');
 const clear = document.querySelector('.clear');
+const confirmModal = document.querySelector('.confirm-modal');
+const confirmDelete = document.querySelector('.confirm-delete');
+const cancelDelete = document.querySelector('.cancel-delete');
 let strBookshelf;
 let getBookshelf;
 let parseBookshelf;
@@ -263,9 +266,19 @@ addBook.addEventListener("click", function(e){
 });
 
 clear.addEventListener("click", function(e){
-    if(parseBookshelf.length > 0){
-        localStorage.clear();
+    if(bookshelf.length > 0 || parseBookshelf.length > 0){
+        confirmModal.style.display = "block";
+        confirmDelete.addEventListener("click", e => {
+            localStorage.clear();
+            bookshelf.length = 0; 
+            while(cardField.lastChild){
+                cardField.removeChild(cardField.lastChild);
+            }
+            confirmModal.style.display = "none";
+        });
+        cancelDelete.addEventListener("click", e => {confirmModal.style.display = "none"});
     }
+
 });
 
 fsubmit.addEventListener("click", function(e){
