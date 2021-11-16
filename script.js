@@ -10,6 +10,7 @@ const fcancel = document.getElementById('close-book');
 const cardField = document.querySelector('.card-field');
 const duplicate = document.querySelector('.duplicate');
 const modal = document.querySelector('.modal');
+const clear = document.querySelector('.clear');
 let strBookshelf;
 let getBookshelf;
 let parseBookshelf;
@@ -261,7 +262,11 @@ addBook.addEventListener("click", function(e){
     ftitle.focus();
 });
 
-
+clear.addEventListener("click", function(e){
+    if(parseBookshelf.length > 0){
+        localStorage.clear();
+    }
+});
 
 fsubmit.addEventListener("click", function(e){
     if(double()){
