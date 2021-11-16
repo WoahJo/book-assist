@@ -29,12 +29,13 @@ function storageAvailable(type){
 }
 
 window.onload = function(){
-    if(storageAvailable('localStorage') && localStorage.length > 0){
-        alert(localStorage.length);
+    if(storageAvailable('localStorage')){
         getBookshelf = localStorage.getItem('strBookshelf');
         parseBookshelf = JSON.parse(getBookshelf);
-        console.log(parseBookshelf);
-        populateField();
+        // console.log(parseBookshelf);
+        if(parseBookshelf.length > 0){
+            populateField();
+        }
     }
 };
 
@@ -85,8 +86,33 @@ function createElements(){
         newReadButton.classList.toggle("hasRead");
         if(newReadButton.textContent == "Unread"){
             newReadButton.textContent = "Read it!";
+            let index = bookshelf.findIndex(element => {
+                if(element.title == btitleH1.textContent){
+                    return true;
+                }
+            });
+            bookshelf[index].read = true;
+            if(storageAvailable('localStorage')){
+                strBookshelf = JSON.stringify(bookshelf);
+                localStorage.setItem('strBookshelf', strBookshelf);
+        
+            }
+            
         }
-        else{newReadButton.textContent = "Unread";}
+        else{
+            newReadButton.textContent = "Unread";
+            let index = bookshelf.findIndex(element => {
+                if(element.title == btitleH1.textContent){
+                    return true;
+                }
+            });
+            bookshelf[index].read = false;
+            if(storageAvailable('localStorage')){
+                strBookshelf = JSON.stringify(bookshelf);
+                localStorage.setItem('strBookshelf', strBookshelf);
+        
+            }
+        }
     });
     
     newRemoveButton.addEventListener("click", function(e){
@@ -97,11 +123,18 @@ function createElements(){
         });
         cardField.removeChild(cardDiv);
         bookshelf.splice(bookshelf[index], 1);
+        if(storageAvailable('localStorage')){
+            strBookshelf = JSON.stringify(bookshelf);
+            localStorage.setItem('strBookshelf', strBookshelf);
+    
+        }
     });
 
     if(storageAvailable('localStorage')){
         strBookshelf = JSON.stringify(bookshelf);
         localStorage.setItem('strBookshelf', strBookshelf);
+        getBookshelf = localStorage.getItem(strBookshelf);
+        parseBookshelf = JSON.parse(getBookshelf);
 
     }
 }
@@ -115,9 +148,11 @@ function populateField(){
         const parseP = document.createElement('p'); 
         const parseRead = document.createElement('button');
         const parseRemove = document.createElement('button');
+        const parseButtons = document.createElement('div');
         
 
         parseCard.className = "card";
+        parseButtons.className = "action-buttons";
         
         parseH1.className = "btitle";
         parseH1.textContent = parseBookshelf[i].title;
@@ -135,19 +170,62 @@ function populateField(){
         cardField.appendChild(parseCard);
 
         parseRead.className = "bread";
-        if(parseBookshelf.read){
+        parseRead.classList.add("hasRead");
+        if(parseBookshelf[i].read){
+            parseRead.classList.add("hasRead");
             parseRead.textContent = "Read it!";
+            
         }
-        else{parseRead.textContent = "Unread";}
+        if(!parseBookshelf[i].read){
+            parseRead.className = "bread";
+            parseRead.textContent = "Unread";}
 
         parseRead.addEventListener("click", function(e){
-            parseRead.classList.toggle = "hasRead";
+            parseRead.classList.toggle("hasRead");
             if(parseRead.textContent == "Unread"){
                 parseRead.textContent = "Read it!";
-            }
-            else{parseRead.textContent = "Unread";}
-        });
+                parseBookshelf[i].read = true;
 
+                if(storageAvailable('localStorage')){
+                    strBookshelf = JSON.stringify(parseBookshelf);
+                    localStorage.setItem('strBookshelf', strBookshelf);
+            
+                }
+            }
+            else{
+                parseRead.textContent = "Unread";
+                parseBookshelf[i].read = false;
+                if(storageAvailable('localStorage')){
+                    strBookshelf = JSON.stringify(parseBookshelf);
+                    localStorage.setItem('strBookshelf', strBookshelf);
+            
+                }
+            }
+        });
+        
+        cardField.appendChild(parseCard);
+        parseCard.appendChild(parseButtons);
+        parseButtons.appendChild(parseRead);
+
+        parseRemove.className = "remove";
+        parseRemove.textContent = "Remove";
+
+        cardField.appendChild(parseCard);
+        parseCard.appendChild(parseButtons);
+        parseButtons.appendChild(parseRemove);
+
+        parseRemove.addEventListener("click", function(e){
+            
+            cardField.removeChild(parseCard);
+            parseBookshelf.splice(parseBookshelf[i], 1);
+            
+            if(storageAvailable('localStorage')){
+                strBookshelf = JSON.stringify(parseBookshelf);
+                localStorage.setItem('strBookshelf', strBookshelf);
+        
+            }
+        });
+        
     }       
 }
 
@@ -163,71 +241,6 @@ function toBookshelf() {
     //TODO create a function that sends the created object to the 
     bookshelf.unshift(new Book(ftitle.value, fauthor.value, fpages.value, fread.checked));
     createElements();
-    // const newReadButton = document.createElement('button');
-    // const cardDiv = document.createElement('div');
-    // const btitleH1 = document.createElement('h1');
-    // const bauthorH2 = document.createElement('h2');
-    // const bpagesP = document.createElement('p');
-    // const actionDiv = document.createElement('div');
-    // const newRemoveButton = document.createElement('button');
-    
-    // cardDiv.className = "card";
-    
-    // btitleH1.className = "btitle";
-    // btitleH1.textContent = ftitle.value;
-    
-    // bauthorH2.className = "bauthor"; 
-    // bauthorH2.textContent = fauthor.value;
-    
-    // bpagesP.className = "bpages";
-    // bpagesP.textContent = `${fpages.value} page(s)`;
-    
-    // actionDiv.className = "action-buttons";
-
-    // if(fread.checked){
-    //     newReadButton.className = "bread";
-    //     newReadButton.classList.add("hasRead");
-    //     newReadButton.textContent = "Read it!";
-    // }
-    // if(!fread.checked){
-    //     newReadButton.className = "bread";
-    //     newReadButton.textContent = "Unread";
-    // }
-    
-    // newRemoveButton.className = "remove";
-    // newRemoveButton.textContent = "Remove";
-    
-    // cardField.appendChild(cardDiv);
-    // cardDiv.appendChild(btitleH1);
-    // cardDiv.appendChild(bauthorH2);
-    // cardDiv.appendChild(bpagesP);
-    // cardDiv.appendChild(actionDiv);
-    // actionDiv.appendChild(newReadButton);
-    // actionDiv.appendChild(newRemoveButton);
-
-    // newReadButton.addEventListener("click", function(e){
-    //     newReadButton.classList.toggle("hasRead");
-    //     if(newReadButton.textContent == "Unread"){
-    //         newReadButton.textContent = "Read it!";
-    //     }
-    //     else{newReadButton.textContent = "Unread";}
-    // });
-    
-    // newRemoveButton.addEventListener("click", function(e){
-    //     let index = bookshelf.findIndex(element => {
-    //         if(element.title === btitleH1.textContent){
-    //             return true;
-    //         }
-    //     });
-    //     cardField.removeChild(cardDiv);
-    //     bookshelf.splice(bookshelf[index], 1);
-    // });
-
-    // if(storageAvailable('localStorage')){
-    //     strBookshelf = JSON.stringify(bookshelf);
-    //     localStorage.setItem('strBookshelf', strBookshelf);
-
-    // }
 
 }
 
