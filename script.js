@@ -36,7 +36,7 @@ window.onload = function(){
     if(storageAvailable('localStorage')){
         getBookshelf = localStorage.getItem('strBookshelf');
         parseBookshelf = JSON.parse(getBookshelf);
-        bookshelf = [];
+        // bookshelf = [];
         if(parseBookshelf.length > 0){
             populateField();
         }
@@ -135,6 +135,7 @@ function createElements(){
     if(storageAvailable('localStorage')){
         strBookshelf = JSON.stringify(bookshelf);
         localStorage.setItem('strBookshelf', strBookshelf);
+
     }
 }
 
@@ -184,17 +185,19 @@ function populateField(){
             if(parseRead.textContent == "Unread"){
                 parseRead.textContent = "Read it!";
                 parseBookshelf[i].read = true;
+                bookshelf[i].read = true;
 
                 if(storageAvailable('localStorage')){
-                    strBookshelf = JSON.stringify(parseBookshelf);
+                    strBookshelf = JSON.stringify(bookshelf);
                     localStorage.setItem('strBookshelf', strBookshelf);
                 }
             }
             else{
                 parseRead.textContent = "Unread";
                 parseBookshelf[i].read = false;
+                bookshelf[i].read = false;
                 if(storageAvailable('localStorage')){
-                    strBookshelf = JSON.stringify(parseBookshelf);
+                    strBookshelf = JSON.stringify(bookshelf);
                     localStorage.setItem('strBookshelf', strBookshelf);
                 }
             }
@@ -217,9 +220,8 @@ function populateField(){
             parseBookshelf.splice(i, 1);
             bookshelf.splice(i, 1);
             if(storageAvailable('localStorage')){
-                strBookshelf = JSON.stringify(parseBookshelf);
-                localStorage.setItem('strBookshelf', strBookshelf);
-        
+                strBookshelf = JSON.stringify(bookshelf);
+                localStorage.setItem('strBookshelf', strBookshelf);        
             }
             
         });
