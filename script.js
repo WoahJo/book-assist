@@ -255,6 +255,9 @@ addBook.addEventListener("click", function(e){
 });
 
 clear.addEventListener("click", function(e){
+    if(!cardField.lastChild && parseBookshelf.length > 0){
+        return;
+    }
     if(bookshelf.length > 0 || parseBookshelf.length > 0){
         confirmModal.style.display = "block";
         confirmDelete.addEventListener("click", e => {
@@ -267,6 +270,7 @@ clear.addEventListener("click", function(e){
         });
         cancelDelete.addEventListener("click", e => {confirmModal.style.display = "none"});
     }
+    
 });
 
 fsubmit.addEventListener("click", function(e){
