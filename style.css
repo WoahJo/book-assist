@@ -70,6 +70,13 @@ body{
     background-color:rgba(52, 47, 54, 0.445);
 }
 
+.close {
+    text-align: right;
+    color: lightgray;
+    cursor: pointer;
+    font-size: 35px;
+}
+
 #book-form, #confirm-clear {
     position: relative;
     display: flex;
@@ -77,7 +84,7 @@ body{
     justify-content: center;
     background-color: white;
     border: 1px black solid;
-    padding: 70px;
+    padding: 50px 70px;
     row-gap: 5px;
     width: 30%;
     margin: auto;

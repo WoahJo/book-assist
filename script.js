@@ -14,6 +14,7 @@ const clear = document.querySelector('.clear');
 const confirmModal = document.querySelector('.confirm-modal');
 const confirmDelete = document.querySelector('.confirm-delete');
 const cancelDelete = document.querySelector('.cancel-delete');
+const closeForm = document.querySelector('.close');
 let strBookshelf;
 let getBookshelf;
 let parseBookshelf;
@@ -273,6 +274,11 @@ clear.addEventListener("click", function(e){
         cancelDelete.addEventListener("click", e => {confirmModal.style.display = "none"});
     }
     
+});
+
+closeForm.addEventListener("click", function(e){
+    duplicate.style.display = "none";
+    modal.style.display = "none";
 });
 
 fsubmit.addEventListener("click", function(e){
