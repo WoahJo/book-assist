@@ -16,7 +16,11 @@ The **Add Book** button pulls down a form that allows you to provide the title, 
   
 If the required input is not provided, the form will not submit until you correct the invalid field(s).  
    
-![Populated library](images/populateLibrary.png)  
+![Duplicate book](images/duplicatedBook.png)  
+  
+If you happen to enter a book you've already added to your library, the form will alert you and will not submit until the title has been changed.  
+  
+![Populated library](images/populatePage.png)  
 
 As you enter books and press **Submit** on the form, the field below the **Add Book** and **Clear** buttons will fill with your entries. Each card features a **Read it!/Unread** and  **Remove** button. Let's say that you actually didn't read that one book you thought you did, you can toggle the **Read it!/Unread** button by clicking on it to change the read status on the book.  
   
