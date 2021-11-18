@@ -10,7 +10,7 @@ This web app features an **Add Book** button, which allows you to add a book to 
   
 ![The book form](images/emptyForm.png)  
   
-The **Add Book** button pulls down a form that allows you to provide the title, author, amount of pages and whether you have read the book yet. When you're done, the form does not disappear in case you would like to add more than one book. Once you are done, you can either use the **Close** button at the bottom or the &times; in the top-right corner.  
+The **Add Book** button pulls down a form that allows you to provide the title, author, amount of pages and whether you have read the book yet. When you're done, the form does not disappear in case you would like to add more than one book. Once you are done, you can either use the **Close** button at the bottom or the &times; in the top-right corner. Clicking outside of the form will also close it.  
   
 ![Invalid form input](images/invalidForm.png)  
   
