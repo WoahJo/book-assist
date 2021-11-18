@@ -200,7 +200,7 @@ label{
 
 .card-field {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: stretch;
     flex-wrap: wrap;
     row-gap: 30px;
